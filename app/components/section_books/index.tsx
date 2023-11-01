@@ -3,8 +3,6 @@ import Image from "next/image";
 import CardBooks from "../card_books";
 
 export default function SectionBooks({ titulo, categorie, description, autor }: { titulo: string, categorie: string, description: string, autor: string }) {
-  // const capa = "assets/capa.svg";
-
   const capas = [{
     liderança: {
       img: "assets/book/capa1.svg",
