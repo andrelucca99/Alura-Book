@@ -1,4 +1,5 @@
 import NavBar from './components/navBar'
+import SectionBooks from './components/section_books'
 
 export default function Home() {
   return (
@@ -14,6 +15,22 @@ export default function Home() {
             className='w-80 rounded-2xl py-2 px-6 opacity-80'
             type="text"
             placeholder='Qual será sua próxima leitura?'
+          />
+        </section>
+
+        <section className='w-full bg-white'>
+          <SectionBooks
+            titulo="ÚLTIMOS LANÇAMENTOS"
+            categorie="Liderança em Design"
+            description="Habilidades de gestão para alavancar sua carreira"
+            autor="Vitor Zanini"
+          />
+
+          <SectionBooks
+            titulo="MAIS VENDIDOS"
+            categorie="JavaScript Assertivo"
+            description="Testes e qualidade de código em todas as camadas da aplicação"
+            autor="Gabriel Ramos"
           />
         </section>
       </main>
