@@ -2,6 +2,7 @@ import NavBar from './components/navBar'
 import SectionBooks from './components/section_books'
 
 export default function Home() {
+
   return (
     <>
       <header>
@@ -32,6 +33,20 @@ export default function Home() {
             description="Testes e qualidade de código em todas as camadas da aplicação"
             autor="Gabriel Ramos"
           />
+        </section>
+
+        <section className='w-full bg-violet-700 flex flex-col py-8 gap-4 items-center'>
+          <h2 className='text-white font-light text-2xl'>CATEGORIAS MAIS BUSCADAS</h2>
+          <div className='w-fit grid grid-cols-4 gap-4'>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Android</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>OO</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Marketing Digital</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Agile</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Startups</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>HTML & CSS</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Java</span>
+            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Python</span>          
+          </div>
         </section>
       </main>
     </>
