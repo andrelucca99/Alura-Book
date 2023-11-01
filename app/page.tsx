@@ -48,6 +48,14 @@ export default function Home() {
             <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Python</span>          
           </div>
         </section>
+
+        <section className='w-full bg-white justify-center gap-4 flex text-center py-10'>
+          <div className='text-left'>
+            <h3 className='font-medium text-cyan-800 text-2xl'>Fique por dentro das novidades!</h3>
+            <p className='font-light text-base'>Atualizações de e-books, novos livros, promoções e outros.</p>
+          </div>
+          <input className='rounded-2xl text-center border-sky-400 h-10' type="email" placeholder='Cadastre seu e-mail' />
+        </section>
       </main>
     </>
   )
