@@ -1,5 +1,6 @@
 import NavBar from './components/navBar'
 import SectionBooks from './components/section_books'
+import Footer from './components/footer'
 
 export default function Home() {
 
@@ -57,6 +58,10 @@ export default function Home() {
           <input className='rounded-2xl text-center border-sky-400 h-10' type="email" placeholder='Cadastre seu e-mail' />
         </section>
       </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
