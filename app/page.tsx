@@ -4,6 +4,8 @@ import Footer from './components/footer'
 
 export default function Home() {
 
+  const categories = ['Android', 'OO', 'Marketing Digital', 'Agile', 'Startups', 'HTML & CSS', 'Java', 'Python']
+
   return (
     <>
       <header>
@@ -39,14 +41,16 @@ export default function Home() {
         <section className='w-full bg-violet-700 flex flex-col py-8 gap-4 items-center'>
           <h2 className='text-white font-light text-2xl'>CATEGORIAS MAIS BUSCADAS</h2>
           <div className='w-fit grid grid-cols-4 gap-4'>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Android</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>OO</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Marketing Digital</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Agile</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Startups</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>HTML & CSS</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Java</span>
-            <span className='bg-amber-400 p-2 text-2xl font-medium text-center text-white'>Python</span>          
+            { categories &&
+              categories.map((item, index) => (
+                <p
+                  key={index}
+                  className='bg-amber-400 p-1 text-lg font-medium text-center text-white'
+                >
+                  {item}
+                </p>
+              ))
+            }
           </div>
         </section>
 
