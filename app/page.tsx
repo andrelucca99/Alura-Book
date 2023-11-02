@@ -54,6 +54,18 @@ export default function Home() {
           </div>
         </section>
 
+        <section className='sm:hidden inline-block w-full bg-blue-950 justify-center gap-6 flex text-center py-12'>
+          <div className='text-left text-white w-96'>
+            <h2 className='font-medium text-2xl'>Já possui uma conta?</h2>
+            <p className='font-light text-base'>Com um conta você pode criar sua própria estante de livros e e-books.</p>
+          </div>
+          
+          <div className='flex gap-4'>
+            <button className='h-16 bg-transparent border-amber-400 border-2 text-amber-400 px-2 py-3'>Criar conta</button>
+            <button className='h-16 bg-amber-400 text-white px-2 py-3'>Fazer login</button>
+          </div>
+        </section>
+
         <section className='w-full bg-white justify-center gap-4 flex sm:flex-col sm:px-4 text-center py-10'>
           <div className='text-left'>
             <h3 className='font-medium text-cyan-800 text-2xl'>Fique por dentro das novidades!</h3>
