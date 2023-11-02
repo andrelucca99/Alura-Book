@@ -1,11 +1,9 @@
 import NavBar from './components/navBar'
 import SectionBooks from './components/section_books'
 import Footer from './components/footer'
+import { MockListCategories } from './components/utils/mocks'
 
 export default function Home() {
-
-  const categories = ['Android', 'OO', 'Marketing Digital', 'Agile', 'Startups', 'HTML & CSS', 'Java', 'Python']
-
   return (
     <>
       <header>
@@ -41,8 +39,8 @@ export default function Home() {
         <section className='w-full bg-violet-700 flex flex-col sm:px-2 py-8 gap-4 items-center'>
           <h2 className='text-white font-light text-2xl'>CATEGORIAS MAIS BUSCADAS</h2>
           <div className='w-fit grid sm:grid-cols-3 grid-cols-4 sm:grid-rows-1 sm:text-justify gap-4'>
-            { categories &&
-              categories.map((item, index) => (
+            { MockListCategories &&
+              MockListCategories.map((item, index) => (
                 <p
                   key={index}
                   className='bg-amber-400 sm:py-4 p-1 text-lg font-medium text-center text-white'
