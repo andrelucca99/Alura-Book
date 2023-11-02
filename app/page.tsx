@@ -12,7 +12,7 @@ export default function Home() {
         <NavBar />
       </header>
       <main className="w-full flex flex-col">
-        <section className='w-full h-80 bg-violet-700 text-center flex flex-col justify-center items-center gap-3'>
+        <section className='w-full h-80 bg-violet-700 text-center sm:p-4 flex flex-col justify-center items-center gap-3'>
           <h1 className='font-bold text-3xl text-white'>Já sabe por onde começar?</h1>
           <p className='font-medium text-base text-white'>Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
           <input
@@ -38,14 +38,14 @@ export default function Home() {
           />
         </section>
 
-        <section className='w-full bg-violet-700 flex flex-col py-8 gap-4 items-center'>
+        <section className='w-full bg-violet-700 flex flex-col sm:px-2 py-8 gap-4 items-center'>
           <h2 className='text-white font-light text-2xl'>CATEGORIAS MAIS BUSCADAS</h2>
-          <div className='w-fit grid grid-cols-4 gap-4'>
+          <div className='w-fit grid sm:grid-cols-3 grid-cols-4 sm:grid-rows-1 sm:text-justify gap-4'>
             { categories &&
               categories.map((item, index) => (
                 <p
                   key={index}
-                  className='bg-amber-400 p-1 text-lg font-medium text-center text-white'
+                  className='bg-amber-400 sm:py-4 p-1 text-lg font-medium text-center text-white'
                 >
                   {item}
                 </p>
@@ -54,7 +54,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className='w-full bg-white justify-center gap-4 flex text-center py-10'>
+        <section className='w-full bg-white justify-center gap-4 flex sm:flex-col sm:px-4 text-center py-10'>
           <div className='text-left'>
             <h3 className='font-medium text-cyan-800 text-2xl'>Fique por dentro das novidades!</h3>
             <p className='font-light text-base'>Atualizações de e-books, novos livros, promoções e outros.</p>
