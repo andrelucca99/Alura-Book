@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ModalCadastroUsuario from "../ModalCadastroUsuario";
 
 export default function NavBar() {
   return (
@@ -18,6 +19,10 @@ export default function NavBar() {
           <li className="sm:visible invisible"><Image src={'assets/car-icon.svg'} alt="ícone do carrinho" width={40} height={40} /></li>
           <li><Image src={'assets/user-icon.svg'} alt="ícone de usuario" width={30} height={30} /></li>
           <li className="sm:invisible visible font-normal">Login</li>
+          <li className="sm:invisible visible font-normal">
+            Cadastrar
+            <ModalCadastroUsuario />
+          </li>
         </ul>
       </div>
     </nav>
