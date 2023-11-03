@@ -3,9 +3,11 @@
 import Image from "next/image";
 import ModalCadastroUsuario from "../ModalCadastroUsuario";
 import { useState } from "react";
+import ModalLoginUsuario from "../ModalLoginUsuario";
 
 export default function NavBar() {
   const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
+  const [modalLoginAberto, setModalLoginAberto] = useState(false);
 
   return (
     <nav className="w-full h-20 bg-slate-50 flex justify-around p-2">
@@ -23,7 +25,13 @@ export default function NavBar() {
           <li className="sm:visible invisible"><Image src={'assets/favorite-icon.svg'} alt="ícone de favotitar" width={40} height={40} /></li>
           <li className="sm:visible invisible"><Image src={'assets/car-icon.svg'} alt="ícone do carrinho" width={40} height={40} /></li>
           <li><Image src={'assets/user-icon.svg'} alt="ícone de usuario" width={30} height={30} /></li>
-          <li className="sm:invisible visible font-normal">Login</li>
+          <li className="sm:invisible visible font-normal">
+            <button onClick={() => setModalLoginAberto(true)}>Login</button>
+            <ModalLoginUsuario
+              aberta={modalLoginAberto}
+              aoFechar={() => setModalLoginAberto(false)}
+            />
+          </li>
           <li className="sm:invisible visible font-normal">
             <button onClick={() => setModalCadastroAberto(true)}>Cadastrar</button>
             <ModalCadastroUsuario
