@@ -4,6 +4,7 @@ import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks"
 import imagemPrincipal from "./assets/login.svg";
 import Image from "next/image";
 import { useState } from "react";
+import axios from "axios";
 
 const ModalCadastroUsuario = () => {
   const [nome, setNome] = useState('');
@@ -13,6 +14,34 @@ const ModalCadastroUsuario = () => {
   const [cep, setCep] = useState('');
   const [senha, setSenha] = useState('');
   const [senhaConfirmada, setSenhaConfirmada] = useState('');
+
+  const aoSubmeterFormulario = (evento: React.FormEvent<HTMLFormElement>) => {
+    evento.preventDefault();
+
+    const usuario = {
+      nome,
+      email,
+      senha,
+      endereco,
+      cep,
+      complemento
+    }
+    
+    axios.post('http://localhost:8000/public/registrar', usuario)
+      .then(() => {
+        alert('Usuario foi cadastrado com sucesso!');
+        setNome('')
+        setEmail('')
+        setEndereco('')
+        setComplemento('')
+        setCep('')
+        setSenha('')
+        setSenhaConfirmada('')
+      })
+      .catch(() => {
+        alert('OPS! Alguma coisa deu errado!');
+      })
+  }
 
   return (
     <AbModal
@@ -29,44 +58,51 @@ const ModalCadastroUsuario = () => {
             height={317}
           />
         </figure>
-        <form className="max-w-xs w-full">
+        <form onSubmit={aoSubmeterFormulario} className="max-w-xs w-full">
           <AbCampoTexto
             value={nome}
             label='Nome'
             onChange={setNome}
+            type="text"
           />
           <AbCampoTexto
             value={email}
             label='Email'
             onChange={setEmail}
+            type="email"
           />
           <AbCampoTexto
             value={endereco}
             label='Endereço'
             onChange={setEndereco}
+            type="text"
           />
           <AbCampoTexto
             value={complemento}
             label='Complemento'
             onChange={setComplemento}
+            type="text"
           />
           <AbCampoTexto
             value={cep}
             label='CEP'
             onChange={setCep}
+            type="text"
           />
           <AbCampoTexto
             value={senha}
             label='Senha'
             onChange={setSenha}
+            type='password'
           />
           <AbCampoTexto
             value={senhaConfirmada}
             label='Confirmar senha'
             onChange={setSenhaConfirmada}
+            type='password'
           />
           <footer className="mt-10 text-center">
-            <AbBotao texto="Cadastrar"/>
+            <AbBotao texto="Cadastrar" />
           </footer>
         </form>
       </div>
