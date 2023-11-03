@@ -1,7 +1,12 @@
+"use client"
+
 import Image from "next/image";
 import ModalCadastroUsuario from "../ModalCadastroUsuario";
+import { useState } from "react";
 
 export default function NavBar() {
+  const [modalCadastroAberto, setModalCadastroAberto] = useState(false);
+
   return (
     <nav className="w-full h-20 bg-slate-50 flex justify-around p-2">
       <div className="w-6/12 flex sm:justify-between sm:pl-5 items-center gap-4">
@@ -20,8 +25,11 @@ export default function NavBar() {
           <li><Image src={'assets/user-icon.svg'} alt="ícone de usuario" width={30} height={30} /></li>
           <li className="sm:invisible visible font-normal">Login</li>
           <li className="sm:invisible visible font-normal">
-            Cadastrar
-            <ModalCadastroUsuario />
+            <button onClick={() => setModalCadastroAberto(true)}>Cadastrar</button>
+            <ModalCadastroUsuario
+              aberta={modalCadastroAberto}
+              aoFechar={() => setModalCadastroAberto(false)}
+            />
           </li>
         </ul>
       </div>

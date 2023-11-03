@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 
-const ModalCadastroUsuario = () => {
+const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar: () => void }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [endereco, setEndereco] = useState('');
@@ -37,6 +37,7 @@ const ModalCadastroUsuario = () => {
         setCep('')
         setSenha('')
         setSenhaConfirmada('')
+        aoFechar()
       })
       .catch(() => {
         alert('OPS! Alguma coisa deu errado!');
@@ -46,8 +47,8 @@ const ModalCadastroUsuario = () => {
   return (
     <AbModal
       titulo="Cadastrar"
-      aberta={true}
-      aoFechar={() => console.log('fecha ai')}
+      aberta={aberta}
+      aoFechar={aoFechar}
     >
       <div className="flex items-center pt-8">
         <figure>
