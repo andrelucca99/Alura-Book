@@ -8,7 +8,7 @@ import { useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 
-const ModalLoginUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar: () => void }) => {
+const ModalLoginUsuario = ({ aberta, aoFechar, aoEfetuarLogin }: { aberta: boolean, aoFechar: () => void, aoEfetuarLogin: () => void }) => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -21,14 +21,20 @@ const ModalLoginUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar: ()
     }
 
     axios.post('http://localhost:8000/public/login', login)
-    .then(() => {
+    .then((resposta) => {
       alert('Seja bem-vindo!');
+      sessionStorage.setItem('token', resposta.data.access_token);
       setEmail('');
       setSenha('');
       aoFechar();
+      aoEfetuarLogin();
     })
-    .catch(() => {
-      alert('Error ao logar na aplicação');
+    .catch((erro) => {
+      if (erro?.response?.data?.message) {
+        alert(erro?.response?.data?.message);
+      } else {
+        alert('Error ao logar na aplicação');
+      }
     })
   }
 
