@@ -50,7 +50,7 @@ const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar:
       aberta={aberta}
       aoFechar={aoFechar}
     >
-      <div className="flex items-center pt-8">
+      <div className="flex items-center p-0 gap-0">
         <figure>
           <Image
             src={imagemPrincipal}
@@ -59,7 +59,7 @@ const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar:
             height={317}
           />
         </figure>
-        <form onSubmit={aoSubmeterFormulario} className="max-w-xs w-full">
+        <form onSubmit={aoSubmeterFormulario} className="max-w-xs w-full h-auto p-2">
           <AbCampoTexto
             value={nome}
             label='Nome'
@@ -102,7 +102,7 @@ const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar:
             onChange={setSenhaConfirmada}
             type='password'
           />
-          <footer className="mt-10 text-center">
+          <footer className="mt-1 mb-5 text-center">
             <AbBotao texto="Cadastrar" />
           </footer>
         </form>
