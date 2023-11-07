@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import NavBar from '../components/navBar'
 import { AbBotao } from 'ds-alurabooks'
 import { MockListCategories } from '../components/utils/mocks'
 import Footer from '../components/footer'
@@ -9,9 +8,6 @@ import Footer from '../components/footer'
 export default function PageConta() {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <main className='w-full h-full bg-red-300'>
         <div className='w-full bg-slate-700 py-10 text-center text-white font-bold text-2xl'>
           <h1>Minha conta</h1>

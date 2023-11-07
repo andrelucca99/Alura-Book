@@ -1,4 +1,3 @@
-import NavBar from './components/navBar'
 import SectionBooks from './components/section_books'
 import Footer from './components/footer'
 import { MockListCategories } from './components/utils/mocks'
@@ -6,9 +5,6 @@ import { MockListCategories } from './components/utils/mocks'
 export default function Home() {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <main className="w-full flex flex-col">
         <section className='w-full h-80 bg-violet-700 text-center sm:p-4 flex flex-col justify-center items-center gap-3'>
           <h1 className='font-bold text-3xl text-white'>Já sabe por onde começar?</h1>

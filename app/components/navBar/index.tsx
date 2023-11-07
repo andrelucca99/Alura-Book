@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import ActionLogin from "../acoesQuandoLogado";
 import ActionDeslogado from "../acoesQuandoDeslogado";
+import Link from "next/link";
 
 export default function NavBar() {
   const [_modalLoginAberto, setModalLoginAberto] = useState(false);
@@ -20,7 +21,9 @@ export default function NavBar() {
         <Image className="sm:visible invisible" src={'assets/menu-icon.svg'} alt="ícone de menu hamburguer" width={40} height={40} />
         <Image src={'assets/Logo.svg'} alt="logo" width={40} height={40} />
         <ul className="flex gap-4 sm:invisible visible">
-          <li className="font-medium"><b>Alura</b>Books</li>
+          <li className="font-medium">
+            <Link href="/"><b>Alura</b>Books</Link>
+          </li>
           <li className="font-normal">Categorias</li>
         </ul>
       </div>
