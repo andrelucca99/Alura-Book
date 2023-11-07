@@ -1,9 +1,9 @@
 "use client"
 
 import React from 'react'
-import { AbBotao } from 'ds-alurabooks'
-import { MockListCategories } from '../components/utils/mocks'
+import { MockListCategories, menuLateralPedidos } from '../components/utils/mocks'
 import Footer from '../components/footer'
+import PagePedidos from './pedidos/page'
 
 export default function PageConta() {
   return (
@@ -13,30 +13,21 @@ export default function PageConta() {
           <h1>Minha conta</h1>
         </div>
 
-        <section className='flex w-full bg-white justify-around items-center py-5'>
-          <nav className='w-1/4'>
+        <section className='flex w-full bg-white justify-around items-star py-5'>
+          <nav className='w-1/4 p-8'>
             <ul className='flex flex-col items-center justify-center gap-2 font-normal text-base'>
-              <li>Pedidos</li>
-              <li>Troca</li>
-              <li>Cupons</li>
-              <li>Seus dados</li>
+              {
+                menuLateralPedidos &&
+                menuLateralPedidos.map((item) => (
+                  <li
+                    key={item}
+                    className='w-full text-center p-1 border-b-2 border-black hover:text-amber-400 hover:scale-95 hover:transition-all cursor-pointer'
+                  >{item}</li>
+                ))
+              }
             </ul>
           </nav>
-
-          <article className='w-9/12 flex justify-between'>
-            <div className='flex flex-col gap-2'>
-              <h2 className='font-bold text-xl'>Últimos pedidos</h2>
-              <ul className='pl-3'>
-                <li>Pedido:</li>
-                <li>Data do pedido:</li>
-                <li>Valor do pedido:</li>
-                <li>Entrega realizada em:</li>
-              </ul>
-            </div>
-            <div className='flex flex-col justify-end pr-3'>
-              <AbBotao texto='Detalhes' />
-            </div>
-          </article>
+            <PagePedidos />
         </section>
 
         <section className='w-full bg-violet-700 flex flex-col sm:px-2 py-8 gap-4 items-center'>
