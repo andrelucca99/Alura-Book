@@ -39,3 +39,5 @@ export const MockCapasBooks = [{
     alt: "Livro JavaScript Assertivo"
   }
 }]
+
+export const menuLateralPedidos = ['Pedidos', 'Troca', 'Cupons','Seus dados'];
