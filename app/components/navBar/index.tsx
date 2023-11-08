@@ -5,14 +5,22 @@ import { useState } from "react";
 import ActionLogin from "../acoesQuandoLogado";
 import ActionDeslogado from "../acoesQuandoDeslogado";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function NavBar() {
   const [_modalLoginAberto, setModalLoginAberto] = useState(false);
   const [usuarioEstaLogado, setUsuarioEstaLogado] = useState(false);
+  const router = useRouter();
   
   const aoEfetuarLogin = () => {
     setUsuarioEstaLogado(true)
     setModalLoginAberto(false)
+  }
+
+  const aoEfetuarLogou = () => {
+    setUsuarioEstaLogado(false);
+    sessionStorage.removeItem('token');
+    router.push('/');
   }
 
   return (
@@ -34,7 +42,9 @@ export default function NavBar() {
           <li className="sm:visible invisible"><Image src={'assets/car-icon.svg'} alt="ícone do carrinho" width={40} height={40} /></li>
 
           {usuarioEstaLogado ? 
-            <ActionLogin /> :
+            <ActionLogin>
+                <button onClick={aoEfetuarLogou}>Logout</button>
+            </ActionLogin> :
             <ActionDeslogado click={true} aoEfetuarLogin={aoEfetuarLogin} />
           }
         </ul>
