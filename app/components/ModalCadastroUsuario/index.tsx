@@ -1,10 +1,10 @@
 "use client"
 import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks"
+import Image from "next/image";
 
 import imagemPrincipal from "./assets/login.svg";
-import Image from "next/image";
 import { useState } from "react";
-import axios from "axios";
+import http from "@/app/http";
 
 const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar: () => void }) => {
   const [nome, setNome] = useState('');
@@ -27,7 +27,7 @@ const ModalCadastroUsuario = ({ aberta, aoFechar }: { aberta: boolean, aoFechar:
       complemento
     }
     
-    axios.post('http://localhost:8000/public/registrar', usuario)
+    http.post('public/registrar', usuario)
       .then(() => {
         alert('Usuario foi cadastrado com sucesso!');
         setNome('')

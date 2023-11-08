@@ -1,12 +1,12 @@
 "use client"
 
 import { AbBotao, AbCampoTexto, AbModal } from "ds-alurabooks"
+import { useState } from "react";
 import Image from "next/image"
+import Link from "next/link";
 
 import imagemPrincipal from '../ModalCadastroUsuario/assets/login.svg';
-import { useState } from "react";
-import Link from "next/link";
-import axios from "axios";
+import http from "@/app/http";
 
 const ModalLoginUsuario = ({ aberta, aoFechar, aoEfetuarLogin }: { aberta: boolean, aoFechar: () => void, aoEfetuarLogin: () => void }) => {
   const [email, setEmail] = useState('');
@@ -20,7 +20,7 @@ const ModalLoginUsuario = ({ aberta, aoFechar, aoEfetuarLogin }: { aberta: boole
       senha
     }
 
-    axios.post('http://localhost:8000/public/login', login)
+    http.post('public/login', login)
     .then((resposta) => {
       alert('Seja bem-vindo!');
       sessionStorage.setItem('token', resposta.data.access_token);
