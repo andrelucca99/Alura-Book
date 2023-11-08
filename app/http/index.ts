@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const http = axios.create({
   baseURL: 'http://localhost:8000',
@@ -20,6 +21,20 @@ http.interceptors.request.use(function (config) {
 }, function (error) {
   // Do something with request error
   console.log('Erro no interceptor do axios');
+  return Promise.reject(error);
+});
+
+http.interceptors.response.use(function (response) {
+  // Any status code that lie within the range of 2xx cause this function to trigger
+  // Do something with response data
+  return response;
+}, function (error) {
+  // Any status codes that falls outside the range of 2xx cause this function to trigger
+  // Do something with response error
+  const router = useRouter();
+
+  router.push('/');
+
   return Promise.reject(error);
 });
 
